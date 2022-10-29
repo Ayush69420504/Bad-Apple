@@ -13,7 +13,7 @@ ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
 int H = w.ws_row, W = w.ws_col;
 unsigned char frame[H][W][1];
 memset(frame, 0, H*W*sizeof(char));
-char path[100],ffmpeg[200],ffplay[107];
+char path[100],ffmpeg[200];
 char tframe[H*(15*W+1)];
 memset(tframe, 0, H*(15*W+1)*sizeof(char));
 char chars[10] = {' ', '.', ':', '!', '+', '*', 'e', '$', '@', '8'};
@@ -38,7 +38,6 @@ for (;;)
 {
 if (getchar() == '\t') break;
 }
-sprintf(ffplay, "ffplay %s", path);
 FILE *pipein = popen(ffmpeg, "r");
 for (;;)
 {
