@@ -2,7 +2,6 @@
 #include <unistd.h>
 #include <string.h>
 #include <time.h>
-#include <math.h>
 #include <sys/ioctl.h>
 int main()
 {
@@ -59,7 +58,7 @@ printf("%s", tframe);
 t = 0;
 end = clock();
 ts = (double)(end - begin) / CLOCKS_PER_SEC;
-usleep((int)((dt - ts) * pow(10, 6)));
+usleep((int)((dt - ts) * 1000000));
 }
 printf("\e[?25h");
 printf("\033[0m");
